@@ -1,10 +1,11 @@
 <template>
   <h2>hola mundo hombre</h2>
-  <CartPreview></CartPreview>
+  <ColeccionHombre/>
 </template>
 
 <script setup>
-import CartPreview from "@/components/CartPreview.vue";
+
+import ColeccionHombre from "@/components/ColeccionHombre.vue";
 </script>
 
 <style></style>

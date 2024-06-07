@@ -1,91 +1,35 @@
-<!-- <template>
-  <h2 class="container pt-5">Carrito de Comprasv {{ cartItems }}</h2>
-
-  {{ cartItems }}
-
-  <div v-if="item">
-    <CustomCard
-      :name="item.name"
-      :imageUrl="item.imageUrl"
-      :description="item.description"
-      :price="item.price"
-      :category="item.category"
-    />
-    <h2>EKRMFRKMRKBMG</h2>
-    <div>
-      <h2 class="text-info">Carrito de Compras</h2>
-      <ul>
-        <li v-for="item in cartItems" :key="item.id">
-          {{ item.name }} - ${{ item.price }}
-
-          <CustomCard
-            :name="item.name"
-            :imageUrl="item.imageUrl"
-            :description="item.description"
-            :price="item.price"
-            :category="item.category"
-          />
-        </li>
-      </ul>
-      <p>Total de artículos: {{ cartCount }}</p>
-      <p>Total a pagar: ${{ cartTotal }}</p>
-      <p>card {{ cartItems }}</p>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { computed, onMounted, ref } from "vue";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-import CustomCard from "./CustomCard.vue";
-import PostService from "@/service/PostService";
-const store = useStore();
-const cartItems = computed(() => store.getters.cartItems);
-const cartCount = computed(() => store.getters.cartCount);
-const cartTotal = computed(() => store.getters.cartTotal);
-console.log(cartItems);
-const route = useRoute();
-const itemId = route.params.id;
-console.log(itemId, route, "hola .....");
-const item = ref(null);
-const fetchItem = async () => {
-  try {
-    const response = await PostService.fetchById(itemId);
-    console.log(response, "kifk");
-    item.value = response;
-  } catch (error) {
-    console.error("Error fetching item:", error);
-  }
-};
-onMounted(fetchItem);
-</script>
-
-<style></style> -->
-
 <template>
-  <div>
-    <h2 class="container pt-5">Carrito de Compras</h2>
+  <div class="container">
+    <h2 class="contain fw-bold display-4 containerCarrito pt-5">Carrito de Compras</h2>
 
-    <div v-if="cartItems.length">
-      <ul>
-        <li v-for="item in cartItems" :key="item.id" class="mb-4">
-          <CustomCard
-            :name="item.name"
-            :imageUrl="item.imageUrl"
-            :description="item.description"
-            :price="item.price"
-            :category="item.category"
-          />
-          <div>
-            <p>Talla: {{ item.size }}</p>
-            <p>Cantidad: {{ item.quantity }}</p>
-            <button @click="removeFromCart(item)">Eliminar</button>
-          </div>
-        </li>
-      </ul>
-      <p>Total de artículos: {{ cartCount }}</p>
-      <p>Total a pagar: ${{ cartTotal }}</p>
+    <div class="containe" v-if="cartItems.length">
+      <div>
+        <p class="">Total de artículos:
+
+          <span class="fw-bold">{{ cartCount }}</span>
+        </p>
+      </div>
+      <p>Total a pagar <span class="fw-bold"> ${{ cartTotal }}</span> </p>
+      <div v-for="item in cartItems" :key="item.id" class="mb-4 combo">
+        <CustomCard :imageUrl="item.imageUrl" :showButton="false" />
+        <div>
+          <p>Talla:
+            <span class="fw-bold">{{ item.size }}</span>
+          </p>
+          <p>Cantidad:
+            <span class="fw-bold">{{ item.quantity }}</span>
+          </p>
+          <P>Producto:
+            <span class="fw-bold">{{ item.name }}</span>
+          </P>
+          <P>Precio:
+            <span class="fw-bold">$ {{ item.price }}</span>
+          </P>
+          <button @click="removeFromCart(item)">Eliminar</button>
+        </div>
+      </div>
+
+
     </div>
     <div v-else>
       <p>No hay artículos en el carrito.</p>
@@ -126,21 +70,83 @@ const removeFromCart = (item) => {
 onMounted(fetchItem);
 </script>
 
-<style scoped>
-ul {
-  list-style-type: none;
+<style scoped lang="scss">
+.containerCarrito{
+  // font-family: $font-family;
+}
+.container {
+  padding: 2rem;
+  background-color: $beige;
+  font-family: $font-family;
+  color: $dark;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $tarracota;
+    color: $gray;
+    font-weight: bold;
+
+  }
+}
+
+/* Estilo para la lista de artículos del carrito */
+.containe {
+  list-style: none;
   padding: 0;
+
+  .combo {
+    background-color: $blanco;
+
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    p {
+      margin: 0.5rem 0;
+
+    }
+
+    button {
+      background-color: $rosado;
+      color: $blanco;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($rosado, 10%);
+      }
+    }
+  }
 }
-li {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
+
+/* Estilo para el resumen del carrito */
+
+
+.total-summary {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: $blanco;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+
+.no-items {
+  text-align: center;
+  font-size: 1.2rem;
+  color: $rosado;
 }
 </style>

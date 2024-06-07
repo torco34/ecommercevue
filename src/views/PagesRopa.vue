@@ -1,11 +1,20 @@
 <template>
-    <h2>ropa</h2>
+
+    <div class="containerPages">
+        <ColeccionImgRopa/>
+    </div>
 </template>
 
-<script>
-export default {
+<script setup>
 
-}
+import ColeccionImgRopa from "../components/ColeccionImgRopa.vue";
+
 </script>
 
-<style></style>
+<style lang="scss">
+.containerPages{
+    // background-color: $beige ;
+// background-color: #cccc ;
+}
+
+</style>

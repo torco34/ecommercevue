@@ -3,19 +3,16 @@
     <h2 class="p-3 mt-5 fw-bold display-5 containerPreview text-center">
       COMPOSICIÓN, CUIDADOS y ORIGEN
     </h2>
-    <hr class="lineaDercor" />
-    <div
-      class="container mt-5 rounded fondoCard d-md-flex flex-md-row flex-column gap-5"
-    >
+   <div class="container">
+    <BreadCrumbsNav/>
+   </div>
+    
+    <div class="container mt-5 rounded fondoCard d-md-flex flex-md-row flex-column gap-5">
+   
       <div class="flex-grow-1">
         <div v-if="item">
-          <CustomCard
-            :name="item.name"
-            :imageUrl="item.imageUrl"
-            :description="item.description"
-            :price="item.price"
-            :showButton="false"
-          />
+          <CustomCard :name="item.name" :imageUrl="item.imageUrl" :description="item.description" :price="item.price"
+            :showButton="false" />
         </div>
         <div v-else>
           <p>Cargando...</p>
@@ -25,15 +22,10 @@
         <div>
           <div>
             <p class="fs-3 fw-bold">Tallas</p>
-            <p
-              v-for="size in sizes"
-              :key="size"
-              :class="[
-                'border p-2 co',
-                { 'selected-size': size === selectedSize },
-              ]"
-              @click="selectSize(size)"
-            >
+            <p v-for="size in sizes" :key="size" :class="[
+              'border p-2 co',
+              { 'selected-size': size === selectedSize },
+            ]" @click="selectSize(size)">
               {{ size }}
             </p>
           </div>
@@ -59,7 +51,7 @@ import { useToast } from "vue-toastification";
 import PostService from "@/service/PostService";
 import CustomCard from "@/components/CustomCard.vue";
 import CustomButton from "@/components/CustomButton.vue";
-
+import BreadCrumbsNav from "./BreadCrumbsNav.vue"
 const route = useRoute();
 const store = useStore();
 const toast = useToast();
@@ -105,19 +97,24 @@ onMounted(fetchItem);
 <style lang="scss">
 .containerPreview {
   font-family: "Roboto", sans-serif;
+  color: $gray;
 }
+
 .lineaDercor {
   color: $tarracota;
 }
+
 .fondoCard {
   background-color: $beige;
   padding: 20px;
 }
+
 .selected-size {
   background-color: $blanco;
   color: $tarracota;
   cursor: pointer;
 }
+
 .co:hover {
   background-color: $blanco;
   color: $tarracota;
@@ -125,13 +122,18 @@ onMounted(fetchItem);
 }
 
 .custom-toast {
-  background-color: $tarracota !important; /* Cambia esto según tus necesidades */
+  background-color: $tarracota !important;
+  /* Cambia esto según tus necesidades */
   color: #ffffff !important;
 }
+
 .error-toast {
-  background-color: red !important; /* Color de fondo para errores */
-  color: white !important; /* Color de texto para errores */
+  background-color: red !important;
+  /* Color de fondo para errores */
+  color: white !important;
+  /* Color de texto para errores */
 }
+
 .custom-toast .Vue-Toastification__toast-body {
   color: #ffffff;
 }

@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="containerForm">
+   <div class="formContainer">
     <h2>Registro</h2>
-    <form @submit.prevent="register">
-      <div>
+    <form @submit.prevent="register" class="form">
+      <div class="form-group">
         <label for="registerUsername">Nombre de usuario:</label>
         <input
           type="text"
@@ -11,7 +12,16 @@
           required
         />
       </div>
-      <div>
+      <div class="form-group">
+        <label for="registerPassword">Correo:</label>
+        <input
+          type="email"
+          id="registerPassword"
+          v-model="registerForm.password"
+          required
+        />
+      </div>
+      <div class="form-group">
         <label for="registerPassword">Contraseña:</label>
         <input
           type="password"
@@ -20,12 +30,13 @@
           required
         />
       </div>
-      <button type="submit">Registrarse</button>
+      <button type="submit" class="btn">Registrarse</button>
     </form>
+   </div>
 
-    <h2>Iniciar sesión</h2>
-    <form @submit.prevent="login">
-      <div>
+    <!-- <h2>Iniciar sesión</h2>
+    <form @submit.prevent="login" class="form">
+      <div class="form-group">
         <label for="loginUsername">Nombre de usuario:</label>
         <input
           type="text"
@@ -34,7 +45,7 @@
           required
         />
       </div>
-      <div>
+      <div class="form-group">
         <label for="loginPassword">Contraseña:</label>
         <input
           type="password"
@@ -43,8 +54,8 @@
           required
         />
       </div>
-      <button type="submit">Iniciar sesión</button>
-    </form>
+      <button type="submit" class="btn">Iniciar sesión</button>
+    </form> -->
   </div>
 </template>
 
@@ -64,19 +75,79 @@ export default {
   },
   methods: {
     register() {
-      // Aquí puedes enviar los datos del formulario de registro al servidor para el registro
       console.log("Registrarse", this.registerForm);
-      // Lógica para enviar datos al servidor...
     },
     login() {
-      // Aquí puedes enviar los datos del formulario de inicio de sesión al servidor para la autenticación
       console.log("Iniciar sesión", this.loginForm);
-      // Lógica para enviar datos al servidor...
     },
   },
 };
 </script>
 
-<style scoped>
-/* Estilos CSS específicos del componente */
+<style scoped lang="scss">
+.containerForm{
+  display: flex;
+justify-content: center;
+align-items: center;
+height: 90vh;
+color: $gray;
+}
+.formContainer {
+ 
+  width: 30%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: $beige;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: $tarracota;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color:  #ec95a8;
+}
+
+.btn:focus {
+  outline: none;
+}
 </style>

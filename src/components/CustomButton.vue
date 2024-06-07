@@ -50,6 +50,7 @@ document.documentElement.style.setProperty(
   background-color: var(--button-color);
   color: white;
   cursor: pointer;
+
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
