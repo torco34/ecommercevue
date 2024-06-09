@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+import PagesHome from "@/views/PagesHome.vue";
+import PagesHombre from "@/views/PagesHombre.vue";
+import PageStore from "@/views/PageStore.vue";
 const router = createRouter({
   history: createWebHistory(),
 
@@ -7,8 +9,14 @@ const router = createRouter({
     {
       path: "/",
       name: "Inicio",
-      component: () => import("../views/PagesHome.vue"),
+      component: PagesHome
     },
+    {
+      path: "/store",
+      name: "tienda",
+      component: PageStore
+    },
+
     {
       path: "/ropa",
       name: "romap",
@@ -24,7 +32,8 @@ const router = createRouter({
     {
       path: "/hombre",
       name: "hombres",
-      component: () => import("../views/PagesHombre"),
+      component: PagesHombre
+      
     },
     {
       path: "/items/:id",

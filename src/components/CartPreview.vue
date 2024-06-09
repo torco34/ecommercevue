@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="p-3 mt-5 fw-bold display-5 containerPreview text-center">
+    <h2 class="p-3 mt-5 fw-bold display-4 containerPreview text-center">
       COMPOSICIÓN, CUIDADOS y ORIGEN
     </h2>
    <div class="container">

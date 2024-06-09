@@ -58,7 +58,7 @@ const handleClick = () => {
   color: $tarracota;
 }
 .card-img-top {
-  width: 100px;
+  width: 100%;
   height: 20vh;
 }
 </style>

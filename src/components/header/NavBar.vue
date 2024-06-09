@@ -29,6 +29,9 @@
               <router-link to="/ropa" class="nav-link">Colecciones</router-link>
             </li>
             <li class="nav-item">
+              <router-link to="/store" class="nav-link">Tienda</router-link>
+            </li>
+            <li class="nav-item">
               <router-link to="/mujer" class="nav-link">Mujer</router-link>
             </li>
             <li class="nav-item">

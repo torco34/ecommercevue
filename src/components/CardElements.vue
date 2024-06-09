@@ -72,7 +72,7 @@ onMounted(fetchItem);
 
 <style scoped lang="scss">
 .containerCarrito{
-  // font-family: $font-family;
+  font-family: $font-family;
 }
 .container {
   padding: 2rem;

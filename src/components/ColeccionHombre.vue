@@ -81,7 +81,7 @@ function verDetalles(image) {
     <style lang="scss">
     .galerias {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // Crea columnas responsivas
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); // Crea columnas responsivas
       gap: 20px; 
       // background-color: $beige;
     }
