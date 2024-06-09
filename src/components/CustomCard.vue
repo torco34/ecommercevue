@@ -47,18 +47,38 @@ const handleClick = () => {
 
 <style lang="scss">
 .card {
-  width: 18rem;
-  margin-bottom: 20px;
-  background: #f5f7f8;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.card:hover {
-  background-color: #ffff;
-}
-.color {
-  color: $tarracota;
-}
+
 .card-img-top {
   width: 100%;
-  height: 20vh;
+  height: 30vh;
+  transition: transform 0.3s ease;
 }
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+.card-price {
+  margin-bottom: 1rem;
+}
+
 </style>
