@@ -31,8 +31,8 @@ const router = createRouter({
     },
 
     {
-      path: "/hombre",
-      name: "hombres",
+      path: "/Hogar",
+      name: "hogar",
       component: PagesHombre
       
     },

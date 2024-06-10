@@ -35,7 +35,7 @@
               <router-link to="/mujer" class="nav-link">Mujer</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/hombre" class="nav-link">Hombre</router-link>
+              <router-link to="/hogar" class="nav-link">Hogar</router-link>
             </li>
           </ul>
         </div>
