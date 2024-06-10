@@ -8,11 +8,12 @@
     ]">
        <CustomCard
        :id="image.id" 
-       :name="image.title"  
+       :name="image.name"  
        :price="image.price" 
        :showRating="true" 
        :description="image.description" 
-       :imageUrl="image.src" 
+       :category="image.category" 
+       :imageUrl="image.imageUrl" 
        :showButton="true" 
        
        :buttonText="'Agregar al carrito'"
@@ -38,36 +39,41 @@ import CustomCard from './CustomCard.vue';
 const images = ref([
   {
     id: 1,
-    src: img1,
+    imageUrl: img1,
     alt: 'Image',
-    title: 'Mueble azul ',
+    name: 'Mueble azul ',
     price: 2500,
     description: '  sed et ipsum, itaque animi error, illo molestias doloremque ipsa, ',
-    category: 'Categoría 1',
+    category: 'Mueble',
   },
   {
     id: 2,
-    src: img2,
+    imageUrl: img2,
     alt: 'Imagen 2',
-    title: 'Producto 2',
+    name: 'Mueble madera',
     price:  1750,
-    description: '  sed et ipsum, itaque animi error, illo molestias doloremque ipsa,',
-    category: '200 compradas en le mes pasado',
+    description: 'sed et ipsum, itaque animi error, illo molestias doloremque ipsa,',
+    category: 'Mueble cajon',
   },
   {
     id: 3,
-    src: img3,
+    imageUrl: img3,
     alt: 'Imagen 3',
-    title: 'Muebles de madera',
+    name: 'Sofad amarrillo',
     description: '  sed et ipsum, itaque animi error, illo molestias doloremque ipsa,',
     price:  17.5000,
     category: 'Categoría 3',
   },
-  {
+  { 
+    
+    
+
+   
     id: 4,
-    src: img4,
+    imageUrl: img4,
     alt: 'Imagen 4',
-    title: 'Producto 4',
+    name: 'Producto 4',
+    price: 4670,
     description: '  sed et ipsum, itaque animi error, illo molestias doloremque ipsa,',
     category: 'Categoría 4',
   },
@@ -98,4 +104,3 @@ const addToCart = (product) => {
   border-radius: 10px;
 }
 </style>
-

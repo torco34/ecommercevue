@@ -34,10 +34,10 @@
       <div class="p-5 d-grid justify-content-center">
         <h4 v-if="item" class="fw-bold">{{ item.name }}</h4>
         <p v-if="item">{{ item.description }}</p>
-        <p v-if="item" class="fw-bold">Precio: ${{ item.price }}</p>
-        <p  class="fw-bold">Precio aaa: ${{ productId }}</p>
+        <p v-if="item" class="fw-bold">Precio: {{ item.price }}</p>
+        <!-- <p  class="fw-bold">Precio aaa: ${{ productId }}</p>
         <p  class="fw-bold">Precio: ${{ productName }}</p>
-        <p  class="fw-bold">Precio cc: ${{ productPrice }}</p>
+        <p  class="fw-bold">Precio cc: ${{ productPrice }}</p> -->
         <div>
           <CustomButton @click="addToCart"> Agregar al carrito </CustomButton>
         </div>
@@ -60,9 +60,7 @@ const store = useStore();
 const toast = useToast();
 
 const itemId = route.params.id;
-const productId = route.params.id;
-const productName = route.params.name;
-const productPrice = route.params.price;
+
 const item = ref(null);
 const selectedSize = ref(null);
 
@@ -81,7 +79,7 @@ const selectSize = (size) => {
 };
 
 const addToCart = () => {
-alert(productName)
+
   if (!selectedSize.value) {
     toast.error("Por favor, selecciona una talla.", {
       toastClassName: "error-toast",
