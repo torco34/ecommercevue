@@ -1,99 +1,109 @@
 <template>
   <div class="containerForm">
-   <div class="formContainer">
-    <h2>Registro</h2>
-    <form @submit.prevent="register" class="form">
-      <div class="form-group">
-        <label for="registerUsername">Nombre de usuario:</label>
-        <input
-          type="text"
-          id="registerUsername"
-          v-model="registerForm.username"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="registerPassword">Correo:</label>
-        <input
-          type="email"
-          id="registerPassword"
-          v-model="registerForm.password"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="registerPassword">Contraseña:</label>
-        <input
-          type="password"
-          id="registerPassword"
-          v-model="registerForm.password"
-          required
-        />
-      </div>
-      <button type="submit" class="btn">Registrarse</button>
-    </form>
-   </div>
-
-    <!-- <h2>Iniciar sesión</h2>
-    <form @submit.prevent="login" class="form">
-      <div class="form-group">
-        <label for="loginUsername">Nombre de usuario:</label>
-        <input
-          type="text"
-          id="loginUsername"
-          v-model="loginForm.username"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="loginPassword">Contraseña:</label>
-        <input
-          type="password"
-          id="loginPassword"
-          v-model="loginForm.password"
-          required
-        />
-      </div>
-      <button type="submit" class="btn">Iniciar sesión</button>
-    </form> -->
+    <div class="formContainer">
+      <h2 v-if="showRegisterForm">Registro</h2>
+      <h2 v-else>Iniciar sesión</h2>
+      <form @submit.prevent="register" v-if="showRegisterForm" class="form">
+        <div class="form-group">
+          <label for="registerUsername">Nombre de usuario:</label>
+          <input
+            type="text"
+            id="registerUsername"
+            v-model="registerForm.username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="registerEmail">Correo:</label>
+          <input
+            type="email"
+            id="registerEmail"
+            v-model="registerForm.email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Contraseña:</label>
+          <input
+            type="password"
+            id="registerPassword"
+            v-model="registerForm.password"
+            required
+          />
+        </div>
+        <div class="d-flex justify-content-a">
+          <button type="button" @click="toggleForm" class="btn-link">Iniciar sesión</button>
+        </div>
+        <CustomButton type="submit" class="btn">Registrarse</CustomButton>
+      </form>
+      <form @submit.prevent="login" v-else class="form">
+        <div class="form-group">
+          <label for="loginUsername">Nombre de usuario:</label>
+          <input
+            type="text"
+            id="loginUsername"
+            v-model="loginForm.username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Contraseña:</label>
+          <input
+            type="password"
+            id="loginPassword"
+            v-model="loginForm.password"
+            required
+          />
+        </div>
+        <div class="d-flex">
+          <button type="button" @click="toggleForm" class="btn-link">Registrarse </button>
+        </div>
+        <CustomButton type="submit" class="btn">Iniciar sesión</CustomButton>
+      </form>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      registerForm: {
-        username: "",
-        password: "",
-      },
-      loginForm: {
-        username: "",
-        password: "",
-      },
-    };
-  },
-  methods: {
-    register() {
-      console.log("Registrarse", this.registerForm);
-    },
-    login() {
-      console.log("Iniciar sesión", this.loginForm);
-    },
-  },
+<script setup>
+import CustomButton from './CustomButton.vue';
+import { reactive, ref } from 'vue';
+
+const registerForm = reactive({
+  username: '',
+  email: '',
+  password: '',
+});
+
+const loginForm = reactive({
+  username: '',
+  password: '',
+});
+
+const showRegisterForm = ref(true);
+
+const register = () => {
+  console.log('Registrarse', registerForm);
+};
+
+const login = () => {
+  console.log('Iniciar sesión', loginForm);
+};
+
+const toggleForm = () => {
+  showRegisterForm.value = !showRegisterForm.value;
 };
 </script>
 
 <style scoped lang="scss">
-.containerForm{
+.containerForm {
   display: flex;
-justify-content: center;
-align-items: center;
-height: 90vh;
-color: $gray;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  color: $gray;
 }
+
 .formContainer {
- 
   width: 30%;
   margin: 0 auto;
   padding: 2rem;
@@ -132,22 +142,36 @@ h2 {
   font-size: 1rem;
 }
 
-.btn {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 4px;
-  background-color: $tarracota;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 .btn:hover {
-  background-color:  #ec95a8;
+  background-color: #ec95a8;
 }
 
 .btn:focus {
   outline: none;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: $tarracota;
+  margin-bottom: 2rem;
+  font: inherit;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: #ec95a8;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-around {
+  justify-content: space-around;
 }
 </style>

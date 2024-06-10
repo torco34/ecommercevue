@@ -11,7 +11,7 @@
       </div>
       <p>Total a pagar <span class="fw-bold"> ${{ cartTotal }}</span> </p>
       <div v-for="item in cartItems" :key="item.id" class="mb-4 combo">
-        <CustomCard :imageUrl="item.imageUrl" :showButton="false" />
+        <CustomCard :imageUrl="item.imageUrl" :showButton="false"  :showRating="false" />
         <div>
           <p>Talla:
             <span class="fw-bold">{{ item.size }}</span>

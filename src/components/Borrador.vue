@@ -1,0 +1,1 @@
+router.push(`/items/${props.id}`);
