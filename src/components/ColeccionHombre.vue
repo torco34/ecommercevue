@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="container p-5">
     <h2 class="text-center fw-bold containerTexto display-4">Nuevo Para ellos</h2>
   </div>
@@ -6,6 +6,7 @@
     <div v-for="(image, index) in ColeccionImgRopa" :key="index" class="imagens" :class="{ 'animacion': index % 2 === 0 }">
       <img :src="image?.url" :alt="image.alt" class="imagen-larga">
       <div class="card-contents">
+        <CustomCard/>
         <p class="descripcions">{{ image.description }}</p>
         <button @click="verDetalles(image)" class="btn-detalle">Agregar al carrito</button>
       </div>
@@ -23,7 +24,7 @@ import img7 from "@/assets/img/bg-4.jpg";
 import img8 from "@/assets/img/bg-3.jpg";
 import img9 from "@/assets/img/bg-5.jpg";
 // import CustomButton from "@/CustomButton.vue";
-
+import CustomCard  from "./CustomCard.vue"
 const ColeccionImgRopa = [
   {
     url: img1,
@@ -169,4 +170,95 @@ function verDetalles(image) {
     
     
     
+     -->
+     <template>
+      <div class="gallery container">
+        <div v-for="(image, index) in images" :key="index" class="gallery-item">
+          <CustomCard
+            :id="image.id"
+            :name="image.title"
+            :price="image.price"
+            :showRating="true"
+            :description="image.description"
+            :imageUrl="image.src"
+            :showButton="true"
+            :buttonText="'Agregar al carrito'"
+            @add-to-cart="handleAddToCart"
+          />
+        </div>
+      </div>
+    </template>
+    
+    <script setup>
+    import { ref } from 'vue';
+    import { useStore } from 'vuex';
+    import CustomCard from './CustomCard.vue';
+    import img1 from "../assets/Img/galeria_01.jpg";
+    import img2 from "../assets/Img/galeria_02.jpg";
+    import img3 from "../assets/Img/galeria_03.jpg";
+    import img4 from "../assets/Img/galeria_04.jpg";
+    // import img2 from "../assets/Img/producto2.jpg";
+    // import img3 from "../assets/Img/producto3.jpg";
+    // import img4 from "../assets/Img/producto4.jpg";
+    
+    const store = useStore();
+    
+    const images = ref([
+      {
+        id: 1,
+        src: img1,
+        alt: 'Imagen 1',
+        title: 'Producto 1',
+        price: 2500,
+        description: 'Descripción del producto 1',
+      },
+      {
+        id: 2,
+        src: img2,
+        alt: 'Imagen 2',
+        title: 'Producto 2',
+        price: 1750,
+        description: 'Descripción del producto 2',
+      },
+      {
+        id: 3,
+        src: img3,
+        alt: 'Imagen 3',
+        title: 'Producto 3',
+        price: 17500,
+        description: 'Descripción del producto 3',
+      },
+      {
+        id: 4,
+        src: img4,
+        alt: 'Imagen 4',
+        title: 'Producto 4',
+        price: 2000,
+        description: 'Descripción del producto 4',
+      },
+    ]);
+    
+    const handleAddToCart = (product) => {
+      store.dispatch('addToCart', product); // Envía todo el objeto del producto al carrito
+      console.log(`Producto añadido al carrito: ${product.name}`);
+    };
+    </script>
+    
+    <style scoped>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 1600px;
+      margin-top: 20px;
+    }
+    
+    .gallery-item {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    </style>
     
