@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <BreadCrumbsNav />
-    <h3 class="text-center  display-4 fw-bold">Tienda de muebles</h3>
+    <h2 class="text-center colorTextStore display-4 fw-bold">Tienda de muebles y Detalles</h2>
     <hr>
     
     <ProductGalleryStore />
@@ -17,4 +17,7 @@ import BreadCrumbsNav from '@/components/BreadCrumbsNav.vue';
 
 <style lang="scss">
 /* Estilos */
+.colorTextStore{
+color:$gray ;
+}
 </style>

@@ -15,7 +15,8 @@ const router = createRouter({
     {
       path: "/store",
       name: "tienda",
-      component: PageStore
+      component: PageStore,
+      meta: { title: "Tienda" }
     },
 
     {
@@ -28,18 +29,21 @@ const router = createRouter({
       path: "/mujer",
       name: "mujer",
       component: () => import("../views/PagesMujer.vue"),
+      meta: { title: "Mujer" }
     },
 
     {
       path: "/hogar",
-      name: "hogar",
-      component: PagesHogar
-      
+      name: "Hogar",
+      component: PagesHogar,
+      meta: { title: "Hogar" }
     },
+  
     {
       path: "/items/:id",
-      name: "items",
+      name: "ItemDetails",
       component: () => import("../components/CartPreview.vue"),
+      meta: { title: "Seleccion de talla" }
     },
 
     {

@@ -130,9 +130,7 @@ onMounted(fetchItem);
       cursor: pointer;
       transition: background-color 0.3s;
 
-      &:hover {
-        background-color: darken($rosado, 10%);
-      }
+      
     }
   }
 }
@@ -152,6 +150,6 @@ onMounted(fetchItem);
 .no-items {
   text-align: center;
   font-size: 1.2rem;
-  color: $rosado;
+ 
 }
 </style>

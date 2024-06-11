@@ -58,7 +58,9 @@ import ColeccionHombre from "@/components/ColeccionHombre.vue";
   // max-width: 1200px;
 
 }
-
+.router-link-active {
+    color: $tarracota !important;
+  }
 .text-center {
   text-align: center;
 }
