@@ -27,9 +27,11 @@
 
 <script setup>
 import { useStore } from 'vuex';
-
+import { useToast } from "vue-toastification";
 import { ref } from 'vue';
-const store = useStore(); 
+const store = useStore();
+
+const toast = useToast(); 
 import img1 from "../assets/Img/producto1.jpg";
 import img2 from "../assets/Img/producto2 (1).jpg";
 import img3 from "@/assets/Img/producto2.jpg";
@@ -78,15 +80,15 @@ const images = ref([
     category: 'Categoría 4',
   },
 ]);
-import { useRouter } from "vue-router";
-const router = useRouter()
+
 
 const addToCart = (product) => {
   
   store.dispatch('addToCart', product); // Envía todo el objeto del producto al carrito
   console.log(`Producto añadido al carrito: ${product.title}`);
-  router.push(`/items/${product.id}`);
-  router.push({ name: 'items', params: { id: product.id, name: product.title, price: product.price } });
+  toast.success(`El producto ${product.name}  se agregado al carrito`, {
+      toastClassName: "success-toast",
+    });
   alert(`${product.name} añadido al carrito`);
 };
 </script>
@@ -103,4 +105,15 @@ const addToCart = (product) => {
   background-color: #fff;
   border-radius: 10px;
 }
+.success-toast {
+  background-color: #FFEEA9;
+  color: #fff;
+}
+
+/* .error-toast {
+  background-color: red !important;
+  /* Color de fondo para errores *
+  color: white !important;
+  /* Color de texto para errores */
+/* }  */
 </style>

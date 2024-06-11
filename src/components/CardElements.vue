@@ -66,7 +66,10 @@ const fetchItem = async () => {
 
 const removeFromCart = (item) => {
   store.dispatch("removeFromCart", item);
-  toast.success('¡El elemento se ha eliminado correctamente!');
+  toast.error("¡El elemento se ha eliminado correctamente!", {
+      toastClassName: "error-toast",
+    });
+ 
 };
 
 onMounted(fetchItem);

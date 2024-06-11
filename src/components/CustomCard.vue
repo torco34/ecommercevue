@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-// import { useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 import { defineProps, defineEmits, ref } from "vue";
 import CustomButton from "./CustomButton.vue";
 
@@ -51,7 +51,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['add-to-cart']);
-// const router = useRouter();
+const router = useRouter();
 const rating = ref(0);
 
 const handleAddToCart = () => {
@@ -65,10 +65,12 @@ const handleAddToCart = () => {
   
   });
   console.log(`Added to cart: ${props.name}`);
-  alert(props.id, "card")
-  alert(props.product, "product")
-  // router.push(`/items/${props.id}`);
+  alert(props.category, "card")
+  alert(props.category, "product xxxxxx")
  
+  if (props.category === 'Dama') {
+    router.push(`/items/${props.id}`);
+  }
 };
 
 const setRating = (star) => {

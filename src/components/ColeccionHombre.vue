@@ -94,7 +94,7 @@ const images = ref([
 const handleAddToCart = (product) => {
   store.dispatch('addToCart', product); 
   toast.success("Producto agregado al carrito exitosamente!");
-  // Envía todo el objeto del producto al carrito
+
   console.log(`Producto añadido al carrito: ${product.name}`);
 };
 </script>
