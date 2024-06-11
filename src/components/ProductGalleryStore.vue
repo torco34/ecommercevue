@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="gallery container">
+  <div class="gallery containe">
     <div v-for="(image, index) in images" :key="index" :class="[
       'gallery-item',
       { 'item-1': index === 0, 'item-2': index === 1, 'item-3': index === 2 },
@@ -85,7 +85,7 @@ const addToCart = (product) => {
   
   store.dispatch('addToCart', product); // Envía todo el objeto del producto al carrito
   console.log(`Producto añadido al carrito: ${product.title}`);
-  // router.push(`/items/${product.id}`);
+  router.push(`/items/${product.id}`);
   router.push({ name: 'items', params: { id: product.id, name: product.title, price: product.price } });
   alert(`${product.name} añadido al carrito`);
 };
@@ -95,7 +95,7 @@ const addToCart = (product) => {
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 50px;
+  gap: 10px;
   padding: 10px;
   width: 100%;
   max-width: 1600px;

@@ -9,7 +9,7 @@
           <span class="fw-bold">{{ cartCount }}</span>
         </p>
       </div>
-      <p>Total a pagar <span class="fw-bold"> ${{ cartTotal }}</span> </p>
+      <p>Total a pagar <span class="fw-bold">${{ cartTotal }}</span> </p>
       <div v-for="item in cartItems" :key="item.id" class="mb-4 combo">
         <CustomCard :imageUrl="item.imageUrl" :showButton="false"  :showRating="false" />
         <div>
@@ -41,9 +41,10 @@
 import { computed, ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import { useToast } from "vue-toastification";
 import CustomCard from "./CustomCard.vue";
 import PostService from "@/service/PostService";
-
+const toast = useToast();
 const store = useStore();
 const cartItems = computed(() => store.getters.cartItems);
 const cartCount = computed(() => store.getters.cartCount);
@@ -65,6 +66,7 @@ const fetchItem = async () => {
 
 const removeFromCart = (item) => {
   store.dispatch("removeFromCart", item);
+  toast.success('¡El elemento se ha eliminado correctamente!');
 };
 
 onMounted(fetchItem);
@@ -117,7 +119,7 @@ onMounted(fetchItem);
     }
 
     button {
-      background-color: $rosado;
+      background-color: $tarracota;
       color: $blanco;
       border: none;
       border-radius: 4px;

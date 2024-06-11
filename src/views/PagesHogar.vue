@@ -1,30 +1,35 @@
 <template>
   <div class="containers">
+
     <div class="header text-center">
-      <h2 class="fw-bold display-2">Tienda Muebles</h2>
+      <h2 class="display-4 p-5 fw-bold">Tienda Muebles</h2>
     </div>
   </div>
-    <div class="text-center p-5 fw-bold">
-      <h1 class="fw-bold colorCategoria">Categorías de Productos</h1>
-      <hr>
-    </div>
-    <div class="categories-containe">
-      <ColeccionHombre/>
-    </div>
- 
+
+  <div class="text-center p-5 fw-bold">
+    <BreadCrumbsNav />
+
+    <h3 class="fs-1 fw-bold colorCategoria">Categorías de Productos</h3>
+    <hr>
+  </div>
+  <div class="">
+    <ColeccionHombre />
+  </div>
+
 
 </template>
 
 
 <script setup>
-// import CategoryCard from "@/components/CustomCard.vue"
+
+import BreadCrumbsNav from "@/components/BreadCrumbsNav.vue";
 import ColeccionHombre from "@/components/ColeccionHombre.vue";
-// import categories from '@/service/data/categories';
+
+
+
 </script>
 
 <style lang="scss" scoped>
-
-
 .containers {
   background-image: url('../assets/Img/galeria_01.jpg');
   background-size: cover;
@@ -37,24 +42,20 @@ import ColeccionHombre from "@/components/ColeccionHombre.vue";
   align-items: center;
   color: #555;
 }
-.colorCategoria{
+
+.colorCategoria {
   color: #555;
 }
-// .header {
-//   padding: 50px 0;
-// }
 
-// .display-2 {
-//   font-size: 3rem;
-// }
 
 .categories-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 20px;
   padding: 20px;
   width: 100%;
-  max-width: 1200px;
+  border: solid red;
+  // max-width: 1200px;
 
 }
 

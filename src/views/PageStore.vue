@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <h2 class="text-center">Tienda de muebles</h2>
+  <div class="container mt-5">
     <BreadCrumbsNav />
+    <h3 class="text-center  display-4 fw-bold">Tienda de muebles</h3>
+    <hr>
+    
     <ProductGalleryStore />
 
   </div>

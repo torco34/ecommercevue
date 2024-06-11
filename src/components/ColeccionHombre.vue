@@ -11,6 +11,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useStore } from 'vuex';
+import { useToast } from "vue-toastification";
 import CustomCard from './CustomCard.vue';
 import img1 from "../assets/Img/galeria_01.jpg";
 import img2 from "../assets/Img/galeria_02.jpg";
@@ -20,7 +21,7 @@ import img5 from "../assets/Img/producto5.jpg";
 import img6 from "../assets/Img/producto6.jpg";
 import img7 from "../assets/Img/producto6.jpg";
 import img8 from "../assets/Img/categoria11.jpg"
-
+const toast = useToast();
 const store = useStore();
 
 const images = ref([
@@ -91,7 +92,9 @@ const images = ref([
 ]);
 
 const handleAddToCart = (product) => {
-  store.dispatch('addToCart', product); // Envía todo el objeto del producto al carrito
+  store.dispatch('addToCart', product); 
+  toast.success("Producto agregado al carrito exitosamente!");
+  // Envía todo el objeto del producto al carrito
   console.log(`Producto añadido al carrito: ${product.name}`);
 };
 </script>
