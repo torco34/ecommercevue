@@ -1,4 +1,4 @@
-$tarracota:  #F76B8A;
+$terracotta:  #F76B8A;
 
 $dark: #333;
 $blanco: #ffff;
@@ -9,7 +9,8 @@ $font-family: 'Helvetica Neue', Arial, sans-serif;
 
 
 .router-link-active {
-    color: $tarracota !important;
+    color: $terracotta !important;
+    font-weight: bold;
   }
 
 

@@ -20,7 +20,7 @@ import img3 from "../assets/Img/galeria_03.jpg";
 import img5 from "../assets/Img/producto5.jpg";
 import img6 from "../assets/Img/producto6.jpg";
 import img7 from "../assets/Img/producto6.jpg";
-import img8 from "../assets/Img/categoria11.jpg"
+import img8 from "../assets/Img/categoria8M.jpg"
 const toast = useToast();
 const store = useStore();
 

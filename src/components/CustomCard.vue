@@ -65,8 +65,7 @@ const handleAddToCart = () => {
   
   });
   console.log(`Added to cart: ${props.name}`);
-  alert(props.category, "card")
-  alert(props.category, "product xxxxxx")
+
  
   if (props.category === 'Dama') {
     router.push(`/items/${props.id}`);
@@ -85,7 +84,9 @@ const setRating = (star) => {
   flex-direction: column;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  
+
 }
 
 .card-img-top {

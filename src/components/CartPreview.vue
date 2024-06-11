@@ -106,7 +106,7 @@ onMounted(fetchItem);
 }
 
 .lineaDercor {
-  color: $tarracota;
+  color: $terracotta;
 }
 
 .fondoCard {
@@ -116,18 +116,18 @@ onMounted(fetchItem);
 
 .selected-size {
   background-color: $blanco;
-  color: $tarracota;
+  color: $terracotta;
   cursor: pointer;
 }
 
 .co:hover {
   background-color: $blanco;
-  color: $tarracota;
+  color: $terracotta;
   cursor: pointer;
 }
 
 .custom-toast {
-  background-color: $tarracota !important;
+  background-color: $terracotta !important;
   /* Cambia esto según tus necesidades */
   color: #ffffff !important;
 }

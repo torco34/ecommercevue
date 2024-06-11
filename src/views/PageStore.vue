@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <BreadCrumbsNav />
-    <h2 class="text-center colorTextStore display-4 fw-bold">Tienda de muebles y Detalles</h2>
+    <h3 class="my-2 colorTextStore fs-1 fw-bold">Tienda de muebles y Detalles</h3>
     <hr>
     
     <ProductGalleryStore />

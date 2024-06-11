@@ -2,18 +2,18 @@
   <div class="containers">
 
     <div class="header text-center">
-      <h2 class="display-4 p-5 fw-bold">Tienda Muebles</h2>
+      <h2 class="display-4  fw-bold">Tienda Muebles</h2>
     </div>
   </div>
 
-  <div class="text-center p-5 fw-bold">
+  <div class="containerText container fw-bold">
     <BreadCrumbsNav />
 
     <h3 class="fs-1 fw-bold colorCategoria">Categorías de Productos</h3>
     <hr>
   </div>
   <div class="">
-    <ColeccionHombre />
+    <ColeccionHogar />
   </div>
 
 
@@ -23,7 +23,7 @@
 <script setup>
 
 import BreadCrumbsNav from "@/components/BreadCrumbsNav.vue";
-import ColeccionHombre from "@/components/ColeccionHombre.vue";
+import ColeccionHogar from "@/components/ColeccionHogar.vue";
 
 
 
@@ -35,7 +35,7 @@ import ColeccionHombre from "@/components/ColeccionHombre.vue";
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 30vh;
+  min-height: 20vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -44,9 +44,16 @@ import ColeccionHombre from "@/components/ColeccionHombre.vue";
 }
 
 .colorCategoria {
-  color: #555;
+  color: $gray;
 }
-
+.containerText{
+  color: #555;
+  display: grid;
+  max-width: 1600px;
+  margin-bottom: 5rem;
+  margin-top: 50px;
+  width: 100%;
+}
 
 .categories-container {
   display: grid;
@@ -54,12 +61,12 @@ import ColeccionHombre from "@/components/ColeccionHombre.vue";
   gap: 20px;
   padding: 20px;
   width: 100%;
-  border: solid red;
-  // max-width: 1200px;
+
+
 
 }
 .router-link-active {
-    color: $tarracota !important;
+    color: $terracotta !important;
   }
 .text-center {
   text-align: center;

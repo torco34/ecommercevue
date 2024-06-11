@@ -2,21 +2,27 @@
   <div class="background-image">
     <div class="content">
       <h1 class="display-3 fw-bold">
-        Todo lo que buscabas, <br />
+        Todo para tu hogar, <br />
         en un solo lugar, sin<br />
         salir de casa
       </h1>
 
       <div class="my-5">
-        <CustomButton>¡Bienvenido a la coleccion!</CustomButton>
+        <CustomButton @click="goToCollection">¡Bienvenidos a la nueva colección!</CustomButton>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-// Importamos el componente de botón reutilizable
 import CustomButton from "@/components/CustomButton.vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goToCollection = () => {
+  router.push('/coleccion');
+};
 </script>
 
 <style scoped lang="scss">
@@ -31,9 +37,22 @@ import CustomButton from "@/components/CustomButton.vue";
   background-image: url("../assets/img/home1.jpg");
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
 }
+
+// .imgenInici {
+//   background-image: url('../assets/Img/categoria5M.jpg');
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   height: 20vh;
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   align-items: center;
+//   color: #555;
+// }
 
 .content {
   height: 90vh;

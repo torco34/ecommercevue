@@ -13,7 +13,7 @@ import "vue-toastification/dist/index.css";
 const app = createApp(App);
 
 const options = {
-  position: POSITION.TOP_RIGHT,
+  position: POSITION.BOTTOM_RIGHT, 
   timeout: 5000,
   hideProgressBar: false,
   closeOnClick: true,

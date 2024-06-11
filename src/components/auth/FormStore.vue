@@ -1,5 +1,7 @@
 <template>
+  <div class="container mt-5"> <BreadCrumbsNavVue /></div>
   <div class="containerForm">
+   
     <div class="formContainer">
       <h2 v-if="showRegisterForm">Registro</h2>
       <h2 v-else>Iniciar sesión</h2>
@@ -38,23 +40,25 @@
       </form>
       <form @submit.prevent="login" v-else class="form">
         <div class="form-group">
-          <label for="loginUsername">Nombre de usuario:</label>
-          <input
-            type="text"
-            id="loginUsername"
-            v-model="loginForm.username"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="loginPassword">Contraseña:</label>
-          <input
-            type="password"
-            id="loginPassword"
-            v-model="loginForm.password"
-            required
-          />
-        </div>
+    <label for="loginUsername">Nombre:</label>
+    <input
+      type="text"
+     id="loginUsername"
+      v-model="loginForm.username"
+      
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="loginPassword">Contraseña:</label>
+    <input
+      type="password"
+      id="loginPassword"
+      v-model="loginForm.password"
+      
+      required
+    />
+  </div>
         <div class="d-flex">
           <button type="button" @click="toggleForm" class="btn-link">Registrarse </button>
         </div>
@@ -65,8 +69,12 @@
 </template>
 
 <script setup>
-import CustomButton from './CustomButton.vue';
+import CustomButton from '../CustomButton.vue';
+import {createUser}  from "../../service/PostUser"
+import {loginUser} from "../../service/PostUser"
+console.log(createUser, "hola")
 import { reactive, ref } from 'vue';
+import BreadCrumbsNavVue from '../BreadCrumbsNav.vue';
 
 const registerForm = reactive({
   username: '',
@@ -80,14 +88,30 @@ const loginForm = reactive({
 });
 
 const showRegisterForm = ref(true);
-
-const register = () => {
-  console.log('Registrarse', registerForm);
+const register = async () => {
+  try {
+    const response = await createUser(registerForm); // Llama a la función createUser con los datos del formulario
+    console.log('Usuario creado exitosamente:', response);
+  } catch (error) {
+    console.error('Error al crear usuario:', error);
+  }
 };
-
-const login = () => {
-  console.log('Iniciar sesión', loginForm);
+// const register = () => {
+//   console.log('Registrarse', registerForm);
+// };
+const login = async () => {
+  try {
+    const response = await loginUser(loginForm); // Llama a la función loginUser con los datos del formulario
+    console.log('Inicio de sesión exitoso:', response);
+    // Aquí puedes manejar la respuesta, por ejemplo, redirigiendo al usuario a otra página o mostrando un mensaje de éxito.
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+    // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje de error al usuario.
+  }
 };
+// const login = () => {
+//   console.log('Iniciar sesión', loginForm);
+// };
 
 const toggleForm = () => {
   showRegisterForm.value = !showRegisterForm.value;
@@ -155,7 +179,7 @@ h2 {
 .btn-link {
   background: none;
   border: none;
-  color: $tarracota;
+  color: $terracotta;
   margin-bottom: 2rem;
   font: inherit;
   cursor: pointer;

@@ -89,7 +89,7 @@ const addToCart = (product) => {
   toast.success(`El producto ${product.name}  se agregado al carrito`, {
       toastClassName: "success-toast",
     });
-  alert(`${product.name} añadido al carrito`);
+  
 };
 </script>
 
@@ -105,10 +105,7 @@ const addToCart = (product) => {
   background-color: #fff;
   border-radius: 10px;
 }
-.success-toast {
-  background-color: #FFEEA9;
-  color: #fff;
-}
+
 
 /* .error-toast {
   background-color: red !important;

@@ -2,27 +2,31 @@
   <div>
     <nav>
       <ol class="breadcrumb">
-        <!-- Siempre visible enlace a Inicio -->
+       
         <li class="breadcrumb-item">
-          <router-link to="/" class="nav-link">Inicio</router-link>
+          <router-link to="/" class="nav-link" :class="{'active-link': isHomePage}">Inicio</router-link>
         </li>
-        <!-- Enlace condicionalmente visible a Compras -->
+       
         <li v-if="isHogarPage" class="breadcrumb-item">
-          <router-link :to="`/hogar/${$route.params.id}`" class="nav-link">Compras</router-link>
+          <router-link :to="`/hogar/${$route.params.id}`" class="nav-link" :class="{'active-link': isHogarPage}">Compras</router-link>
         </li>
-        <!-- Enlace condicionalmente visible para Crear -->
+       
         <li v-if="isCreatePage" class="breadcrumb-item">
-          <router-link to="/create" class="nav-link">Crear</router-link>
+          <router-link to="/create" class="nav-link" :class="{'active-link': isCreatePage}">Crear</router-link>
         </li>
-        <!-- Enlace condicionalmente visible para Actualizar -->
+      
         <li v-if="isUpdatePage" class="breadcrumb-item">
-          <router-link :to="`/update/${$route.params.id}`" class="nav-link">Actualizar</router-link>
+          <router-link :to="`/update/${$route.params.id}`" class="nav-link" :class="{'active-link': isUpdatePage}">Actualizar</router-link>
         </li>
-        <!-- Enlace condicionalmente visible para Eliminar -->
+       
         <li v-if="isDeletePage" class="breadcrumb-item">
-          <router-link :to="`/delete/${$route.params.id}`" class="nav-link">Eliminar</router-link>
+          <router-link :to="`/delete/${$route.params.id}`" class="nav-link" :class="{'active-link': isDeletePage}">Eliminar</router-link>
         </li>
-        <!-- Nombre de la página actual -->
+      
+        <li v-if="isLoginPage" class="breadcrumb-item">
+          <router-link to="/formLogin" class="nav-link" :class="{'active-link': isLoginPage}">Iniciar Sesión</router-link>
+        </li>
+      
         <li class="breadcrumb-item active" aria-current="page">{{ pageTitle }}</li>
       </ol>
     </nav>
@@ -40,46 +44,37 @@ export default {
     const route = useRoute();
 
   
-    const pageTitle = computed(() => {
-      return route.meta.title;
-    });
+    const pageTitle = computed(() => route.meta.title);
 
-
-    const isHogarPage = computed(() => {
-      return route.path.startsWith('/hogar/') && route.params.id !== undefined;
-    });
-
-
-    const isCreatePage = computed(() => {
-      return route.path === '/create';
-    });
-
-    // Check if the current route corresponds to the 'Update' page
-    const isUpdatePage = computed(() => {
-      return route.path.startsWith('/update/') && route.params.id !== undefined;
-    });
-
-    // Check if the current route corresponds to the 'Delete' page
-    const isDeletePage = computed(() => {
-      return route.path.startsWith('/delete/') && route.params.id !== undefined;
-    });
+   
+    const isHomePage = computed(() => route.path === '/');
+    const isHogarPage = computed(() => route.path.startsWith('/hogar/') && route.params.id !== undefined);
+    const isCreatePage = computed(() => route.path === '/create');
+    const isUpdatePage = computed(() => route.path.startsWith('/update/') && route.params.id !== undefined);
+    const isDeletePage = computed(() => route.path.startsWith('/delete/') && route.params.id !== undefined);
+    const isLoginPage = computed(() => route.path === '/formLogin');
 
     return {
+      isHomePage,
       isHogarPage,
       isCreatePage,
       isUpdatePage,
       isDeletePage,
+      isLoginPage,
       pageTitle
     };
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.breadcrumb-item .router-link-active {
-  color: $tarracota; 
+<style scoped>
+
+.breadcrumb-item .active-link {
+  color: pink; 
 }
+
+
 .breadcrumb-item .active-link.formLogin {
-  color: blue; /* Cambia este color según tu preferencia */
+  color: blue; 
 }
 </style>

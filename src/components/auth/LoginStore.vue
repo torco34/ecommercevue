@@ -1,5 +1,5 @@
 <template>
-  <h2>ste es</h2>
+  bienvenido
 </template>
 
 <script>

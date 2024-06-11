@@ -1,28 +1,28 @@
 <template>
   <div class="containerImg">
-
-    <div class="header shadow rounded text-center ">
-    <h2 class="display-4 p-2 fw-bold">Detalles Especiales</h2>
+    <div class="header shadow rounded text-center">
+      <h2 class="display-4 p-2 fw-bold">Detalles Especiales</h2>
+      <p>Esta sección va con una API.</p>
+    </div>
   </div>
-  </div>
-  <div class="container">
-   
-    <div class="p-5">
+  <div>
+    <div class="containerText container">
       <BreadCrumbsNav />
-      <h3 class="text-center  display-4 fw-bold">Solo para ellas</h3>
+      <h3 class="fs-1 fw-bold colorCategoria ">Solo para ellas</h3>
       <hr>
-     
-     
-     
     </div>
-    <div class=" containerPreview container">
-      <CustomCard v-for="item in items" :key="item.id" :name="item.name" :id="item._id" :category="item.category"
-        :price="item.price" />
+    <div class="containerPreview container">
+      <CustomCard
+        v-for="item in items"
+        :key="item.id"
+        :name="item.name"
+        :id="item._id"
+        :category="item.category"
+        :price="item.price"
+      />
     </div>
   </div>
-
 </template>
-
 
 <script>
 import PostService from "@/service/PostService";
@@ -59,15 +59,13 @@ export default defineComponent({
 });
 </script>
 
-
 <style lang="scss" scoped>
 .containerPreview {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 50px;
-
+  font-family: $font-family;
   width: 100%;
-  
 }
 
 .containerImg {
@@ -75,41 +73,28 @@ export default defineComponent({
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 30vh;
+  min-height: 20vh;
   display: flex;
-  widows: 100%;
- align-items: center;
- justify-content: center;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   color: #555;
 }
-.header{
-  color:$tarracota;
-  background-color: #fff ;
+.containerText{
+  color: #555;
+    display: grid;
+    max-width: 1600px;
+    margin-bottom: 5rem;
+    margin-top: 50px;
+    width: 100%;
 }
-// /* Add styles for your CustomCard if needed */
-// .card {
-//   margin-bottom: 20px;
-//   /* Adjust the card styles as needed */
-// }
+.header {
+  color: $terracotta;
+  background-color: #fff;
+  font-family: $font-family;
+}
 
-// @media (max-width: 576px) {
-//   .containerPreview {
-//     height: 15vh;
-//     /* Adjust as needed for smaller screens */
-//   }
-// }
-
-// @media (min-width: 768px) {
-//   .containerPreview {
-//     height: 20vh;
-//     /* Adjust as needed for medium screens */
-//   }
-// }
-
-// @media (min-width: 992px) {
-//   .containerPreview {
-//     height: 25vh;
-//     /* Adjust as needed for large screens */
-//   }
-// }
+.colorCategoria {
+  color: $gray;
+}
 </style>
