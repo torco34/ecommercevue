@@ -1,5 +1,4 @@
 $terracotta:  #F76B8A;
-
 $dark: #333;
 $blanco: #ffff;
 $beige: #f1efef;
@@ -12,7 +11,14 @@ $font-family: 'Helvetica Neue', Arial, sans-serif;
     color: $terracotta !important;
     font-weight: bold;
   }
-
+  .custom-toast {
+    background-color: #F76B8A !important; /* Cambia esto según tus necesidades */
+    color: #ffffff !important;
+  }
+  
+  .custom-toast .Vue-Toastification__toast-body {
+    color: #ffffff;
+  }
 
 
 

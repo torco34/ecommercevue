@@ -88,14 +88,18 @@ const addToCart = (product) => {
     quantity: 1, 
   };
   store.dispatch('addToCart', productToAdd); // Envía todo el objeto del producto al carrito
-  toast.success(`El producto ${product.name}  se agregado al carrito`, {
-      toastClassName: "success-toast",
-    });
+  // toast.success(`El producto ${product.name}  se agregado al carrito`, {
+  //     toastClassName: "success-toast",
+  //   });
+
+  toast.success("Producto agregado al carrito exitosamente!", {
+    toastClassName: "custom-toast",
+  });
   
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
@@ -107,12 +111,6 @@ const addToCart = (product) => {
   background-color: #fff;
   border-radius: 10px;
 }
-.error-toast {
-  background-color: red !important;
-  /* Color de fondo para errores *
-  color: white !important;
-  /* Color de texto para errores */
-} 
 
 
 </style>

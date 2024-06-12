@@ -97,13 +97,15 @@ const handleAddToCart = (product) => {
     quantity: 1, 
   };
   store.dispatch('addToCart', productToAdd); 
-  toast.success("Producto agregado al carrito exitosamente!");
+  toast.success("Producto agregado al carrito exitosamente!", {
+    toastClassName: "custom-toast",
+  });
 
-  console.log(`Producto añadido al carrito: ${product.name}`);
+ 
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
@@ -113,7 +115,9 @@ const handleAddToCart = (product) => {
   max-width: 1600px;
   margin-top: 20px;
 }
-
+.success-toast{
+  background-color: $terracotta;
+}
 .gallery-item {
   background-color: #fff;
   border-radius: 10px;

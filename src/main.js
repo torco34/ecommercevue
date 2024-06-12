@@ -25,6 +25,8 @@ const options = {
   icon: true,
   rtl: false,
   toastClassName: "custom-toast",
+  bodyClassName: "custom-toast-body",
+
 };
 app.use(router);
 app.use(store);

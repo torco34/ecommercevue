@@ -10,7 +10,7 @@
        <i  v-for="star in 5" :key="star" @click="setRating(star)" class="bi "
           :class="star <= rating ? 'bi-star-fill' : 'bi-star'"></i> 
      </div> 
-      <p class="card-price fw-bold">$ {{ price }}</p>
+      <p class="card-price fw-bold"> {{ price }}</p>
     
       <div class="d-flex justify-content-between align-items-center">
         <CustomButton v-if="showButton" @click="handleAddToCart">
