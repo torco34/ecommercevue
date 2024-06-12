@@ -93,7 +93,12 @@ const images = ref([
 ]);
 
 const handleAddToCart = (product) => {
-  store.dispatch('addToCart', product); 
+  const productToAdd = {
+    ...product,
+    quantity: 1, 
+  };
+
+  store.dispatch('addToCart', productToAdd); 
   toast.success("Producto agregado al carrito exitosamente!");
 
   console.log(`Producto añadido al carrito: ${product.name}`);

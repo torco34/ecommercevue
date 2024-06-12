@@ -6,7 +6,7 @@
       <h5 class="card-title fs-6 fw-bold">{{ name }}</h5>
       <p class="card-text">{{ description }}</p>
       <p class="text-dark">{{ category }}</p>
-      <div class="rating border" v-if="showRating">
+      <div class="rating" v-if="showRating">
        <i  v-for="star in 5" :key="star" @click="setRating(star)" class="bi "
           :class="star <= rating ? 'bi-star-fill' : 'bi-star'"></i> 
      </div> 
@@ -55,21 +55,15 @@ const router = useRouter();
 const rating = ref(0);
 
 const handleAddToCart = () => {
-  emit('add-to-cart', { 
-    id: props.id,  
-    product: props.product, 
-    name: props.name, 
-    price: props.price, 
-    imageUrl: props.imageUrl,
-    category: props.category
-  
-  });
+  emit('add-to-cart', { id: props.id,  product: props.product, name: props.name, price: props.price, imageUrl: props.imageUrl});
   console.log(`Added to cart: ${props.name}`);
-
+  
  
   if (props.category === 'Dama') {
     router.push(`/items/${props.id}`);
   }
+  
+ 
 };
 
 const setRating = (star) => {
@@ -84,9 +78,7 @@ const setRating = (star) => {
   flex-direction: column;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  
-
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-img-top {

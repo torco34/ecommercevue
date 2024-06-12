@@ -17,7 +17,7 @@
   text-align: center;
   margin-top: 20px;
   background-color: #333;
-  padding: 10%;
+  padding: 13%;
 
   margin-bottom: 0;
 }

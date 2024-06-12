@@ -34,10 +34,8 @@
       <div class="p-5 d-grid justify-content-center">
         <h4 v-if="item" class="fw-bold">{{ item.name }}</h4>
         <p v-if="item">{{ item.description }}</p>
-        <p v-if="item" class="fw-bold">Precio: {{ item.price }}</p>
-        <!-- <p  class="fw-bold">Precio aaa: ${{ productId }}</p>
-        <p  class="fw-bold">Precio: ${{ productName }}</p>
-        <p  class="fw-bold">Precio cc: ${{ productPrice }}</p> -->
+        <p v-if="item" class="fw-bold">Precio:{{ item.price }}</p>
+     
         <div>
           <CustomButton @click="addToCart"> Agregar al carrito </CustomButton>
         </div>
@@ -68,6 +66,7 @@ const sizes = ref(["L", "M", "S", "XL"]);
 const fetchItem = async () => {
   try {
     const response = await PostService.fetchById(itemId);
+    console.log(itemId)
     item.value = response;
   } catch (error) {
     console.error("Error fetching item:", error);
@@ -99,14 +98,14 @@ const addToCart = () => {
 onMounted(fetchItem);
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .containerPreview {
   font-family: "Roboto", sans-serif;
   color: $gray;
 }
 
 .lineaDercor {
-  color: $terracotta;
+  color: red;
 }
 
 .fondoCard {
@@ -116,18 +115,18 @@ onMounted(fetchItem);
 
 .selected-size {
   background-color: $blanco;
-  color: $terracotta;
+  color: red;
   cursor: pointer;
 }
 
 .co:hover {
   background-color: $blanco;
-  color: $terracotta;
+  color: red;
   cursor: pointer;
 }
 
 .custom-toast {
-  background-color: $terracotta !important;
+  background-color: red !important;
   /* Cambia esto según tus necesidades */
   color: #ffffff !important;
 }

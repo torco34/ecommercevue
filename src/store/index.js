@@ -12,7 +12,10 @@ const store = createStore({
         (cartItem) => cartItem.id === item.id && cartItem.size === item.size
       );
       if (existingItem) {
-        existingItem.quantity += item.quantity; // grega
+        if (item.quantity) {
+          existingItem.quantity += item.quantity;
+        }
+        // existingItem.quantity += item.quantity; // grega
       } else {
         state.cart.push(item); // suma si esta
       }

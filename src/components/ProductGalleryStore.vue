@@ -83,9 +83,11 @@ const images = ref([
 
 
 const addToCart = (product) => {
-  
-  store.dispatch('addToCart', product); // Envía todo el objeto del producto al carrito
-  console.log(`Producto añadido al carrito: ${product.title}`);
+  const productToAdd = {
+    ...product,
+    quantity: 1, 
+  };
+  store.dispatch('addToCart', productToAdd); // Envía todo el objeto del producto al carrito
   toast.success(`El producto ${product.name}  se agregado al carrito`, {
       toastClassName: "success-toast",
     });
@@ -105,12 +107,12 @@ const addToCart = (product) => {
   background-color: #fff;
   border-radius: 10px;
 }
-
-
-/* .error-toast {
+.error-toast {
   background-color: red !important;
   /* Color de fondo para errores *
   color: white !important;
   /* Color de texto para errores */
-/* }  */
+} 
+
+
 </style>
