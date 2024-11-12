@@ -41,18 +41,6 @@ const goToCollection = () => {
   width: 100%;
 }
 
-// .imgenInici {
-//   background-image: url('../assets/Img/categoria5M.jpg');
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   height: 20vh;
-//   display: flex;
-//   justify-content: center;
-//   flex-direction: column;
-//   align-items: center;
-//   color: #555;
-// }
 
 .content {
   height: 90vh;

@@ -86,7 +86,7 @@ onMounted(fetchItem);
   padding: 2rem;
   background-color: $beige;
   font-family: $font-family;
-  color: $dark;
+  // color: $dark;
   // height: 300vh;
 
 

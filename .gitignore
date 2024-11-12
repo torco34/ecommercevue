@@ -1,9 +1,13 @@
+# macOS system files
 .DS_Store
-node_modules
-/dist
+
+# Node.js modules
+node_modules/
+
+# Build output
 
 
-# local env files
+# Local environment files
 .env.local
 .env.*.local
 
@@ -14,10 +18,13 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
-.idea
-.vscode
+.idea/
+.vscode/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Git files
+.git/

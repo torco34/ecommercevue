@@ -13,7 +13,8 @@ const router = createRouter({
     {
       path: "/",
       name: "Inicio",
-      component: PagesHome
+      component: PagesHome,
+      meta: { title: "Inicio" }
     },
     {
       path: "/store",
@@ -49,25 +50,33 @@ const router = createRouter({
       path: "/product/:id",
       name: "Product",
       component: ProductDetails,
+      meta: { title: "Detalles del Producto" }
     },
     {
       path: "/cardElement",
       name: "CardElement",
       component: () => import("../components/CardElements.vue"),
-      meta: { title: "Carrito " }
+      meta: { title: "Carrito" }
     },
     {
       path: "/login",
       name: "Login",
       component: LoginStore,
+      meta: { title: "Iniciar Sesión" }
     },
     {
       path: "/form",
       name: "Form",
       component: FormStore,
-      meta: { title: "Login" }
+      meta: { title: "Formulario de Registro" }
     },
   ],
+});
+
+// Cambio de título de la página basado en la meta title
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'Default Title'; // Cambia 'Default Title' por el título predeterminado que quieras
+  next();
 });
 
 export default router;

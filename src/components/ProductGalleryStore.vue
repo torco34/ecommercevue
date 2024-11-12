@@ -1,24 +1,13 @@
-
-
 <template>
   <div class="gallery containe">
     <div v-for="(image, index) in images" :key="index" :class="[
       'gallery-item',
       { 'item-1': index === 0, 'item-2': index === 1, 'item-3': index === 2 },
     ]">
-       <CustomCard
-       :id="image.id" 
-       :name="image.name"  
-       :price="image.price" 
-       :showRating="true" 
-       :description="image.description" 
-       :category="image.category" 
-       :imageUrl="image.imageUrl" 
-       :showButton="true" 
-       
-       :buttonText="'Agregar al carrito'"
-       @add-to-cart="addToCart"/>
-     
+      <CustomCard :id="image.id" :name="image.name" :price="image.price" :showRating="true"
+        :description="image.description" :category="image.category" :imageUrl="image.imageUrl" :showButton="true"
+        :buttonText="'Agregar al carrito'" @add-to-cart="addToCart" />
+
       <!-- <button @click="addToCart(image)">Agregar al carrito</button> -->
     </div>
   </div>
@@ -31,7 +20,7 @@ import { useToast } from "vue-toastification";
 import { ref } from 'vue';
 const store = useStore();
 
-const toast = useToast(); 
+const toast = useToast();
 import img1 from "../assets/Img/producto1.jpg";
 import img2 from "../assets/Img/producto2 (1).jpg";
 import img3 from "@/assets/Img/producto2.jpg";
@@ -53,7 +42,7 @@ const images = ref([
     imageUrl: img2,
     alt: 'Imagen 2',
     name: 'Mueble madera',
-    price:  1750,
+    price: 1750,
     description: 'sed et ipsum, itaque animi error, illo molestias doloremque ipsa,',
     category: 'Mueble cajon',
   },
@@ -63,14 +52,14 @@ const images = ref([
     alt: 'Imagen 3',
     name: 'Sofad amarrillo',
     description: '  sed et ipsum, itaque animi error, illo molestias doloremque ipsa,',
-    price:  17.5000,
+    price: 17.5000,
     category: 'Categoría 3',
   },
-  { 
-    
-    
+  {
 
-   
+
+
+
     id: 4,
     imageUrl: img4,
     alt: 'Imagen 4',
@@ -85,17 +74,15 @@ const images = ref([
 const addToCart = (product) => {
   const productToAdd = {
     ...product,
-    quantity: 1, 
+    quantity: 1,
   };
   store.dispatch('addToCart', productToAdd); // Envía todo el objeto del producto al carrito
-  // toast.success(`El producto ${product.name}  se agregado al carrito`, {
-  //     toastClassName: "success-toast",
-  //   });
+
 
   toast.success("Producto agregado al carrito exitosamente!", {
     toastClassName: "custom-toast",
   });
-  
+
 };
 </script>
 
@@ -111,6 +98,4 @@ const addToCart = (product) => {
   background-color: #fff;
   border-radius: 10px;
 }
-
-
 </style>

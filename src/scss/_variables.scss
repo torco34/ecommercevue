@@ -8,8 +8,14 @@ $font-family: 'Helvetica Neue', Arial, sans-serif;
 
 
 .router-link-active {
-    color: $terracotta !important;
-    font-weight: bold;
+    color: $terracotta ;
+  
+  }
+  .active-link.isHogarPage {
+    color: $gray ;
+  }
+  .active-link.isHomePage{
+    color: $terracotta ;
   }
   .custom-toast {
     background-color: #F76B8A !important; /* Cambia esto según tus necesidades */
