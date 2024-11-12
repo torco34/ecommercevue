@@ -34,7 +34,7 @@ const goToCollection = () => {
 }
 
 .background-image {
-  background-image: url("../../public/img/home1.jpg");
+  background-image: url("/public/img/home1.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
